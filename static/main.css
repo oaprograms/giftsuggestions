@@ -287,7 +287,8 @@ header {
   .p-gifts .checkbox-item {
     margin: 5px 0px;
     width: 180px;
-    display: inline-block; }
+    float: left;
+    display: block; }
   .p-gifts [type="checkbox"]:not(:checked),
   .p-gifts [type="checkbox"]:checked {
     position: absolute;
