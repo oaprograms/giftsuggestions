@@ -133,7 +133,8 @@
   left: 0;
   width: 3px;
   height: 10px;
-  margin-left: 11px;
+  margin-left: 7px;
+  margin-right: 7px;
   text-align: center;
   cursor: pointer;
   background: #e2e2e2; }
