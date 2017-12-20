@@ -67,7 +67,7 @@
 		<div class="products-section grid">
 			<figure class="single-product ng-cloak effect-zoe" ng-if="!data.showFavs"
                     ng-repeat="gift in data.gifts | filterCategories: data.categories | filterAge: ageSlider | filterGender: genderSlider | orderBy: '-points' as filtered" >
-                price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}
+                <!--price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}-->
                 <a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
 					<img src="{{ gift.img }}" alt="">
 				</a>
