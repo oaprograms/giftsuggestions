@@ -45,13 +45,11 @@
                     </p>
                 </a>
 		    </div>
-		<div class="categories-section" ng-if="! data.showFavs">
-            <div class="checkbox-item" ng-click="selectCategory('all'); $event.stopPropagation(); $event.preventDefault();">
-                <input type="checkbox" ng-model="data.allCategoriesSelected" id="catAll"/>
-                <label for="catAll"><span>All Categories</span></label>
-            </div>
-		</div>
 		<div class="checkbox-section" ng-if="! data.showFavs">
+			<div class="checkbox-item" ng-click="selectCategory('all'); $event.stopPropagation(); $event.preventDefault();">
+				<input type="checkbox" ng-model="data.allCategoriesSelected" id="catAll"/>
+				<label for="catAll"><span><b>All Categories</b></span></label>
+			</div>
 			<div class="checkbox-item ng-cloak" ng-repeat="category in data.categories">
 				<input type="checkbox" ng-model="category.show" id="cat{{$index}}"/>
 				<label for="cat{{$index}}"><span ng-click="selectCategory(category.name); $event.stopPropagation(); $event.preventDefault();">{{ category.name }}</span></label>
