@@ -286,7 +286,7 @@ header {
     padding: 25px 0px; }
   .p-gifts .checkbox-item {
     margin: 5px 0px;
-    width: 180px;
+    width: 16.66%;
     float: left;
     display: block; }
   .p-gifts [type="checkbox"]:not(:checked),
