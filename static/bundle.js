@@ -2736,6 +2736,14 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
         $scope.calcPoints();
     });
 
+    $scope.$watch('data.categories', function(){
+        var allSelected = true;
+        angular.forEach($scope.data.categories, function(cat) {
+            if (!cat.show) { allSelected = false; }
+        });
+        $scope.data.allCategoriesSelected = allSelected;
+    }, true);
+
     $scope.ageSlider = {
         val: 'Both',
         options: {
@@ -2785,7 +2793,7 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
 
 	$scope.selectCategory = function(category){
         angular.forEach($scope.data.categories, function(cat) {
-            cat.show = (cat.name == category) || category == 'all';
+            cat.show = (category == 'all' && $scope.data.allCategoriesSelected) ? false : (cat.name == category) || category == 'all';
         });
 	}
 
@@ -2837,7 +2845,6 @@ app.filter('filterFavs', function() {
 app.filter('filterAge', function() {
     return function(input, age) {
         var out = [];
-        console.log(age.val);
         angular.forEach(input, function(item) {
             if (!(item.age == 1 && age.val == 'Adult') && !((item.age || 3) > 2 && age.val == 'Young')) {
                 out.push(item);
