@@ -2832,6 +2832,7 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
         angular.forEach($scope.data.gifts, function(item) {
             var pricePoints = Math.min(item.price / price, price / item.price) * 4;
             if (item.price > price) pricePoints /= 2;
+            if (item.min > price) pricePoints -= 2;
             item.points = (item.grade || 3) + pricePoints;
             item.pricePoints = pricePoints;
         });
