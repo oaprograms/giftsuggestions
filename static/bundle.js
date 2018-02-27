@@ -2770,7 +2770,8 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
         categories: DATA.categories,
         allCategoriesSelected: true,
         limit: 50,
-        categoriesLimit: 19
+        categoriesLimit: 19,
+        numFoundGifts: 0
 	};
 
     $scope.priceSlider = {
@@ -2799,6 +2800,20 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
             if (!cat.show) { allSelected = false; }
         });
         $scope.data.allCategoriesSelected = allSelected;
+    }, true);
+
+    // count found gifts
+    $scope.$watch('data.categories', function(){
+        var numFound = 0;
+        angular.forEach($scope.data.gifts, function(item) {
+            for (var c in $scope.data.categories) {
+                if ($scope.data.categories[c].show && item.tags.indexOf($scope.data.categories[c].name) > -1) {
+                    numFound++;
+                    break;
+                }
+            }
+        });
+        $scope.data.numFoundGifts = numFound;
     }, true);
 
     $scope.ageSlider = {
@@ -2832,7 +2847,6 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
         angular.forEach($scope.data.gifts, function(item) {
             var pricePoints = Math.min(item.price / price, price / item.price) * 4;
             if (item.price > price) pricePoints /= 2;
-            if (item.min > price) pricePoints -= 2;
             item.points = (item.grade || 3) + pricePoints;
             item.pricePoints = pricePoints;
         });
@@ -2859,13 +2873,17 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
 	    return 'https://www.amazon.com/s?tag=giftaz-20&field-keywords=' + encodeURIComponent(gift.name);
     };
 
-    // $(window).on('scroll', function() {
-    //     if($(window).scrollTop() + $(window).height() > $(document).height() - 300) {
-    //         $scope.$apply(function () {
-    //             $scope.data.limit += 20;
-    //         });
-    //     }
-    // });
+    $scope.increaseLimit = function () {
+        $scope.data.limit += 30;
+    };
+
+    window.onscroll = function(ev) {
+        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 400) {
+            $scope.$apply(function () {
+                $scope.data.limit += 20;
+            });
+        }
+    };
 
 }]);
 
