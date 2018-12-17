@@ -2870,7 +2870,7 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
 	}
 
 	$scope.getLink = function(gift){
-	    return 'https://www.amazon.com/s?tag=giftaz-20&field-keywords=' + encodeURIComponent(gift.name);
+	    return 'https://www.amazon.com/s?tag=giftaz89-20&field-keywords=' + encodeURIComponent(gift.name);
     };
 
     $scope.increaseLimit = function () {
