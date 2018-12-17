@@ -2764,13 +2764,23 @@ function onlyUnique(value, index, self) {
 }
 
 app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$document', function ($scope, $interval, $timeout, $sce, $document) {
-	
+
+    function getCategoriesLimit(){
+        if (matchMedia('(min-width: 1025px)').matches) {
+            return 19;
+        } else if (matchMedia('(min-width: 666px)').matches) {
+            return 11;
+        } else {
+            return 5;
+        }
+    }
+
 	$scope.data = {
 		gifts: DATA.gifts,
         categories: DATA.categories,
         allCategoriesSelected: true,
         limit: 50,
-        categoriesLimit: 19,
+        categoriesLimit: getCategoriesLimit(),
         numFoundGifts: 0
 	};
 
@@ -2787,7 +2797,7 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
     };
 
     $scope.toggleCategoriesLimit = function(){
-        $scope.data.categoriesLimit = ($scope.data.categoriesLimit == 200 ? 19 : 200);
+        $scope.data.categoriesLimit = ($scope.data.categoriesLimit == 200 ? getCategoriesLimit() : 200);
     };
 
     $scope.$watch('priceSlider.val', function(){

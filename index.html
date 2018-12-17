@@ -82,108 +82,123 @@
 	</div>
 </header>
 <section class="p-gifts">
-	<div class="container">
-		<div class="category-section ng-cloak">
-			<div class="category-wrapper" ng-if="! data.showFavs">
-				<p class="category">
-					<span class="price-label">Price:</span>
-					<rzslider class="big-slider"
-					rz-slider-model="priceSlider.val"
-					rz-slider-options="priceSlider.options">
-				</rzslider>
-			</p>
-			<div class="category-age-gender">
-				<p class="category">
-					<span class="price-label">Age:</span>
-					<rzslider class="small-slider"
-					rz-slider-model="ageSlider.val"
-					rz-slider-options="ageSlider.options">
-				</rzslider>
-			</p>
-			<p class="category">
-				<span class="price-label">Gender:</span>
-				<rzslider class="small-slider"
-				rz-slider-model="genderSlider.val"
-				rz-slider-options="genderSlider.options">
-			</rzslider>
-		</p>
-	</div>
-</div>
-<a href class="favourite-items-wrapper" ng-click="data.showFavs = ! data.showFavs">
-	<p class="favourite-items-text">
+    <div class="left">
+        <div class="categories-section clearfix ng-cloak" ng-if="! data.showFavs">
+            <div class="checkbox-item"
+                 ng-click="selectCategory('all'); $event.stopPropagation(); $event.preventDefault();">
+                <input type="checkbox" ng-model="data.allCategoriesSelected" id="catAll"/>
+                <label for="catAll"><span>All Categories</span></label>
+            </div>
+        </div>
+        <div class="checkbox-section clearfix" ng-if="! data.showFavs">
+            <div class="checkbox-item ng-cloak" ng-repeat="category in data.categories | limitTo: data.categoriesLimit">
+                <input type="checkbox" ng-model="category.show" id="cat{{$index}}"/>
+                <label for="cat{{$index}}"><span
+                        ng-click="selectCategory(category.name); $event.stopPropagation(); $event.preventDefault();">{{ category.name }}</span></label>
+            </div>
+            <div class="checkbox-item ng-cloak">
+                <a class="show-more" ng-if="data.categoriesLimit < 200" href="" ng-click="toggleCategoriesLimit()">Show
+                    more &gt;</a>
+                <a class="show-more" ng-if="data.categoriesLimit == 200" href="" ng-click="toggleCategoriesLimit()">&lt;
+                    Show less</a>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="category-section ng-cloak">
+            <div class="category-wrapper" ng-if="! data.showFavs">
+                <p class="category">
+                    <span class="price-label">Price:</span>
+                    <rzslider class="big-slider"
+                              rz-slider-model="priceSlider.val"
+                              rz-slider-options="priceSlider.options">
+                    </rzslider>
+                </p>
+                <div class="category-age-gender">
+                    <p class="category">
+                        <span class="price-label">Age:</span>
+                        <rzslider class="small-slider"
+                                  rz-slider-model="ageSlider.val"
+                                  rz-slider-options="ageSlider.options">
+                        </rzslider>
+                    </p>
+                    <p class="category">
+                        <span class="price-label">Gender:</span>
+                        <rzslider class="small-slider"
+                                  rz-slider-model="genderSlider.val"
+                                  rz-slider-options="genderSlider.options">
+                        </rzslider>
+                    </p>
+                </div>
+            </div>
+            <a href class="favourite-items-wrapper" ng-click="data.showFavs = ! data.showFavs">
+                <p class="favourite-items-text">
 		<span ng-if="! data.showFavs" class="link">Favorite items
 			<span class="number-of-items js-number-of-items ng-cloak">({{ data.favs.length }})</span>
 		</span>
-		<span ng-if="data.showFavs" class="ng-cloak"><span class="fa fa-chevron-left mr"></span>All items</span>
-	</p>
-</a>
-</div>
-<div class="categories-section clearfix ng-cloak" ng-if="! data.showFavs">
-	<div class="checkbox-item" ng-click="selectCategory('all'); $event.stopPropagation(); $event.preventDefault();">
-		<input type="checkbox" ng-model="data.allCategoriesSelected" id="catAll"/>
-		<label for="catAll"><span>All Categories</span></label>
-	</div>
-</div>
-<div class="checkbox-section clearfix" ng-if="! data.showFavs">
-	<div class="checkbox-item ng-cloak" ng-repeat="category in data.categories | limitTo: data.categoriesLimit">
-		<input type="checkbox" ng-model="category.show" id="cat{{$index}}"/>
-		<label for="cat{{$index}}"><span ng-click="selectCategory(category.name); $event.stopPropagation(); $event.preventDefault();">{{ category.name }}</span></label>
-	</div>
-	<div class="checkbox-item ng-cloak" >
-		<a class="show-more" ng-if="data.categoriesLimit < 200" href="" ng-click="toggleCategoriesLimit()">Show more &gt;</a>
-		<a class="show-more" ng-if="data.categoriesLimit == 200" href="" ng-click="toggleCategoriesLimit()">&lt; Show less</a>
-	</div>
-</div>
-<div class="sliders-section">
+                    <span ng-if="data.showFavs" class="ng-cloak link"><span
+                            class="fa fa-chevron-left mr"></span>All items</span>
+                </p>
+            </a>
+        </div>
+        <div class="suggestions-section" ng-if="! data.showFavs">
+        <span class="suggestion-text">Found <span class="suggestions-number ng-cloak">{{ data.numFoundGifts }}</span> suggestions:</span>
+            <a href="https://goo.gl/forms/xJKh5iUI8MXV9OK73" target="_blank" class="link"><span
+                    class="fa fa-plus"></span>Add suggestion</a>
+        </div>
+        <div class="products-section grid">
+            <figure class="single-product ng-cloak effect-zoe" ng-if="!data.showFavs"
+                    ng-repeat="gift in data.gifts | filterCategories: data.categories | filterAge: ageSlider | filterGender: genderSlider | orderBy: '-points'  | limitTo: data.limit">
+                <!--price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}-->
+                <a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
+                    <img ng-src="{{gift.img}}" alt="">
+                </a>
+                <div class="product-wrapper">
+                    <div class="product-name-wrapper">
+                        <p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
+                        <p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a>
+                        </p>
+                        <p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a
+                                href="#" class="tag"
+                                ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
 
-</div>
-<div class="suggestions-section" ng-if="! data.showFavs">
-	<span class="suggestion-text">Suggestions <span class="suggestions-number ng-cloak">({{ data.numFoundGifts }})</span></span>
-	<a href="https://goo.gl/forms/xJKh5iUI8MXV9OK73" target="_blank" class="link"><span class="fa fa-plus"></span>Add Suggestion</a>
-</div>
-<div class="products-section grid">
-	<figure class="single-product ng-cloak effect-zoe" ng-if="!data.showFavs"
-            ng-repeat="gift in data.gifts | filterCategories: data.categories | filterAge: ageSlider | filterGender: genderSlider | orderBy: '-points'  | limitTo: data.limit" >
-        <!--price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}-->
-        <a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
-			<img ng-src="{{gift.img}}" alt="">
-		</a>
-		<div class="product-wrapper">
-			<div class="product-name-wrapper">
-				<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
-				<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a></p>
-				<p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a href="#" class="tag" ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
+                    </div>
+                    <figcaption class="data-wrapper">
+                        <a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}"
+                           class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
+                        <a class="amazon-link" href="{{ getLink(gift) }}" target="_blank"><span
+                                class="amazon-link-search">Search on </span>Amazon.com &gt;</a>
+                    </figcaption>
+                </div>
+                <div class="figure-overlay"></div>
+            </figure>
+            <figure class="single-product ng-cloak effect-zoe"
+                    ng-repeat="gift in data.gifts | filterFavs: data.favs as favFilter" ng-if="data.showFavs">
+                <!--price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}-->
+                <a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
+                    <img ng-src="{{gift.img}}" alt="">
+                </a>
+                <div class="product-wrapper">
+                    <div class="product-name-wrapper">
+                        <p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
+                        <p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a>
+                        </p>
+                        <p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a
+                                href="#" class="tag"
+                                ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
 
-			</div>
-			<figcaption class="data-wrapper">
-				<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}" class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
-				<a class="amazon-link" href="{{ getLink(gift) }}" target="_blank"><span class="amazon-link-search">Search on </span>Amazon.com &gt;</a>
-			</figcaption>
-		</div>
-		<div class="figure-overlay"></div>
-	</figure>
-	<figure class="single-product ng-cloak effect-zoe" ng-repeat="gift in data.gifts | filterFavs: data.favs as favFilter" ng-if="data.showFavs">
-		<!--price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}-->
-		<a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
-			<img ng-src="{{gift.img}}" alt="">
-		</a>
-		<div class="product-wrapper">
-			<div class="product-name-wrapper">
-				<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
-				<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a></p>
-				<p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a href="#" class="tag" ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
-
-			</div>
-			<figcaption class="data-wrapper">
-				<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}" class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
-				<a class="amazon-link" href="{{ getLink(gift) }}" target="_blank">Search on Amazon.com &gt;</a>
-			</figcaption>
-		</div>
-		<div class="figure-overlay"></div>
-	</figure>
-	<span class="ng-cloak" ng-if="data.showFavs && favFilter.length == 0">You haven't liked any items yet</span>
-</div>
-</div>
+                    </div>
+                    <figcaption class="data-wrapper">
+                        <a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}"
+                           class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
+                        <a class="amazon-link" href="{{ getLink(gift) }}" target="_blank">Search on Amazon.com &gt;</a>
+                    </figcaption>
+                </div>
+                <div class="figure-overlay"></div>
+            </figure>
+            <span class="ng-cloak" ng-if="data.showFavs && favFilter.length == 0">You haven't liked any items yet</span>
+        </div>
+    </div>
 </section>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
