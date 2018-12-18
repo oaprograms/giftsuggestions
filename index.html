@@ -40,57 +40,39 @@
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="static/main.min.css?v=1.0">
+    <link rel="stylesheet" href="static/main.min.css?v=1.1">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
 </head>
 <body ng-controller="mainCtrl">
 	<header class="header">
 		<div class="container">
 			<div class="logo-wrapper">
-				<div id="giftLogo" class="gift-logo" style="visibility: hidden;">
-					<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-					viewBox="84 148 332 199" style="enable-background:new 84 148 332 199;" xml:space="preserve">
-					<style type="text/css">
-						.st0{fill:none;stroke:#FFBBB7;stroke-width:4;stroke-miterlimit:10;}
-						.st1{fill:none;stroke:#fff;stroke-width:6;stroke-miterlimit:10;}
-						.st2{fill:none;stroke:#fff;stroke-width:6;stroke-miterlimit:10;}
-					</style>
-					<g id="Layer_1_1_">
-					</g>
-					<g id="hand">
-						<path id="XMLID_1_" class="st0" d="M79.3,215"/>
-						<path id="XMLID_5_" class="st0" d="M91,280c0,0,84.3-4.7,152.7-21.3c0,0,9.7-2.8,12.3-4.5c0,0,5.3-2.5,8.3-1.8
-						c0,0,11.3,0.7,17.3,5.7l9.7,1v4.7l2.3,5l84.8-0.2l1.9-2.3c0,0,1.7,0.4,8.3,0c0,0,8.3-1.2,11.7,0c0,0,15,5.2,6,13.9l-5-1.7
-						l-20.3,3.3c0,0-16.3,2.7-20.3,4.7c0,0-4.3,1-9,1.7c0,0-10,3.7-15,5.3c0,0-4,0.7-8.7,3.7c0,0-8,5-16,3.7c0,0-22.7-4-26.7-4.3
-						c0,0-21.7-3.7-42,1.3c0,0-8-0.3-69.3,21.3s-83,23.3-83,23.3L91,280L91,280z"/>
-					</g>
-					<g id="giftbox">
-						<path id="XMLID_2_" class="st1" d="M380.3,266.1v-6.4v-72c0,0-0.2-4.2-5.8-4c-5.7,0.2-80.2,0-80.2,0s-3.1-0.3-3,3.2s0,72.2,0,72.2"
-						/>
-					</g>
-					<g id="ribbon">
-						<path id="XMLID_4_" class="st1 st2" d="M333.8,268.4v-85.7c0,0-23.8-44.3-41.2-21c0,0-6,9.3,7.7,17c0,0,23.4,3.6,29.4,3.6h9
-						c0,0,16-1,23.5-2.5c0,0,22.5-5.5,14.3-17.8c0,0-9.8-26.2-42.5,19"/>
-					</g>
-				</svg>
-			</div>
-			<div class="logo">Gift<span>Suggestions</span></div>
-		</div>
-	</div>
-</header>
+				<div id="giftLogo" class="gift-logo">
+                    <!--<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 768 768">-->
+                        <!--<title></title>-->
+                        <!--<g id="icomoon-ignore">-->
+                        <!--</g>-->
+                        <!--<path fill="#fff" d="M704 192h-76.8c9.6-16 12.8-32 12.8-48 0-60.8-51.2-112-112-112-73.6 0-118.4 51.2-144 99.2-25.6-48-70.4-99.2-144-99.2-60.8 0-112 51.2-112 112 0 16 3.2 32 12.8 48h-76.8c-19.2 0-32 12.8-32 32v160c0 19.2 12.8 32 32 32h32v288c0 19.2 12.8 32 32 32h512c19.2 0 32-12.8 32-32v-288h32c19.2 0 32-12.8 32-32v-160c0-19.2-12.8-32-32-32zM528 96c25.6 0 48 22.4 48 48s-22.4 48-48 48h-102.4c16-38.4 48-96 102.4-96zM192 144c0-25.6 22.4-48 48-48 54.4 0 86.4 57.6 102.4 96h-102.4c-25.6 0-48-22.4-48-48zM96 256h256v96h-256v-96zM160 416h192v256h-192v-256zM608 672h-192v-256h192v256zM672 352h-256v-96h256v96z"></path>-->
+                    <!--</svg>-->
+                    <img src="favicon-96x96.png" alt="">
+                </div>
+                <div class="logo">Gift<span>Suggestions</span></div>
+            </div>
+        </div>
+    </header>
 <section class="p-gifts">
     <div class="left">
-        <div class="categories-section clearfix ng-cloak" ng-if="! data.showFavs">
+        <div class="categories-section clearfix ng-cloak">
             <div class="checkbox-item"
                  ng-click="selectCategory('all'); $event.stopPropagation(); $event.preventDefault();">
                 <input type="checkbox" ng-model="data.allCategoriesSelected" id="catAll"/>
                 <label for="catAll"><span>All Categories</span></label>
             </div>
         </div>
-        <div class="checkbox-section clearfix" ng-if="! data.showFavs">
+        <div class="checkbox-section clearfix">
             <div class="checkbox-item ng-cloak" ng-repeat="category in data.categories | limitTo: data.categoriesLimit">
                 <input type="checkbox" ng-model="category.show" id="cat{{$index}}"/>
                 <label for="cat{{$index}}"><span
@@ -106,7 +88,7 @@
     </div>
     <div class="right">
         <div class="category-section ng-cloak">
-            <div class="category-wrapper" ng-if="! data.showFavs">
+            <div class="category-wrapper">
                 <p class="category">
                     <span class="price-label">Price:</span>
                     <rzslider class="big-slider"
@@ -131,77 +113,80 @@
                     </p>
                 </div>
             </div>
-            <a href class="favourite-items-wrapper" ng-click="data.showFavs = ! data.showFavs">
-                <p class="favourite-items-text">
-		<span ng-if="! data.showFavs" class="link">Favorite items
-			<span class="number-of-items js-number-of-items ng-cloak">({{ data.favs.length }})</span>
-		</span>
-                    <span ng-if="data.showFavs" class="ng-cloak link"><span
-                            class="fa fa-chevron-left mr"></span>All items</span>
-                </p>
-            </a>
         </div>
-        <div class="suggestions-section" ng-if="! data.showFavs">
+        <div class="suggestions-section" ng-cloak>
         <span class="suggestion-text">Found <span class="suggestions-number ng-cloak">{{ data.numFoundGifts }}</span> suggestions:</span>
             <a href="https://goo.gl/forms/xJKh5iUI8MXV9OK73" target="_blank" class="link"><span
                     class="fa fa-plus"></span>Add suggestion</a>
         </div>
-        <div class="products-section grid">
-            <figure class="single-product ng-cloak effect-zoe" ng-if="!data.showFavs"
-                    ng-repeat="gift in data.gifts | filterCategories: data.categories | filterAge: ageSlider | filterGender: genderSlider | orderBy: '-points'  | limitTo: data.limit">
-                <!--price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}-->
-                <a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
-                    <img ng-src="{{gift.img}}" alt="">
-                </a>
-                <div class="product-wrapper">
-                    <div class="product-name-wrapper">
-                        <p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
-                        <p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a>
-                        </p>
-                        <p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a
-                                href="#" class="tag"
-                                ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
-
-                    </div>
-                    <figcaption class="data-wrapper">
-                        <a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}"
-                           class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
-                        <a class="amazon-link" href="{{ getLink(gift) }}" target="_blank"><span
-                                class="amazon-link-search">Search on </span>Amazon.com &gt;</a>
-                    </figcaption>
+        <div class="products-section grid" ng-cloak>
+            <div class="single-product-simple" ng-repeat="gift in data.gifts | filterCategories: data.categories | filterAge: ageSlider | filterGender: genderSlider | orderBy: '-points'  | limitTo: data.limit">
+                <div class="single-product-simple-wrap">
+                    <a class="single-product-simple-wrap-white" href="{{ getLink(gift) }}" target="_blank" >
+                        <span class="img" ng-style="{'background-image':'url(' + gift.img + ')'}"></span>
+                        <div class="info">
+                            <div class="product-name">{{ gift.name }}</div>
+                            <p class="price">${{gift.min}} - ${{gift.max}} (avg. ${{gift.price}})</p>
+                            <p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><span class="tag" ng-click="selectCategory(tag); $event.stopPropagation(); $event.preventDefault();">{{ tag }}</span>{{$last ? '' : ', '}}</span></p>
+                            <!--<a class="amazon-link" href="{{ getLink(gift) }}" target="_blank"><span class="amazon-link-search">Search on </span>Amazon.com &gt;</a>-->
+                        </div>
+                    </a>
                 </div>
-                <div class="figure-overlay"></div>
-            </figure>
-            <figure class="single-product ng-cloak effect-zoe"
-                    ng-repeat="gift in data.gifts | filterFavs: data.favs as favFilter" ng-if="data.showFavs">
-                <!--price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}-->
-                <a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">
-                    <img ng-src="{{gift.img}}" alt="">
-                </a>
-                <div class="product-wrapper">
-                    <div class="product-name-wrapper">
-                        <p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>
-                        <p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}}</a>
-                        </p>
-                        <p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a
-                                href="#" class="tag"
-                                ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>
+            </div>
+            <!--<figure class="single-product ng-cloak effect-zoe" ng-if="!data.showFavs"-->
+                    <!--ng-repeat="gift in data.gifts | filterCategories: data.categories | filterAge: ageSlider | filterGender: genderSlider | orderBy: '-points'  | limitTo: data.limit">-->
+                <!--&lt;!&ndash;price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}&ndash;&gt;-->
+                <!--<a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">-->
+                    <!--<img ng-src="{{gift.img}}" alt="">-->
+                <!--</a>-->
+                <!--<div class="product-wrapper">-->
+                    <!--<div class="product-name-wrapper">-->
+                        <!--<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>-->
+                        <!--<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}} (avg. ${{gift.price}}) </a>-->
+                        <!--</p>-->
+                        <!--<p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a-->
+                                <!--href="#" class="tag"-->
+                                <!--ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>-->
 
-                    </div>
-                    <figcaption class="data-wrapper">
-                        <a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}"
-                           class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>
-                        <a class="amazon-link" href="{{ getLink(gift) }}" target="_blank">Search on Amazon.com &gt;</a>
-                    </figcaption>
-                </div>
-                <div class="figure-overlay"></div>
-            </figure>
-            <span class="ng-cloak" ng-if="data.showFavs && favFilter.length == 0">You haven't liked any items yet</span>
+                    <!--</div>-->
+                    <!--<figcaption class="data-wrapper">-->
+                        <!--<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}"-->
+                           <!--class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>-->
+                        <!--<a class="amazon-link" href="{{ getLink(gift) }}" target="_blank"><span-->
+                                <!--class="amazon-link-search">Search on </span>Amazon.com &gt;</a>-->
+                    <!--</figcaption>-->
+                <!--</div>-->
+                <!--<div class="figure-overlay"></div>-->
+            <!--</figure>-->
+            <!--<figure class="single-product ng-cloak effect-zoe"-->
+                    <!--ng-repeat="gift in data.gifts | filterFavs: data.favs as favFilter" ng-if="data.showFavs">-->
+                <!--&lt;!&ndash;price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}&ndash;&gt;-->
+                <!--<a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">-->
+                    <!--<img ng-src="{{gift.img}}" alt="">-->
+                <!--</a>-->
+                <!--<div class="product-wrapper">-->
+                    <!--<div class="product-name-wrapper">-->
+                        <!--<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>-->
+                        <!--<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}} (avg. ${{gift.price}}) </a>-->
+                        <!--</p>-->
+                        <!--<p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a-->
+                                <!--href="#" class="tag"-->
+                                <!--ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>-->
+
+                    <!--</div>-->
+                    <!--<figcaption class="data-wrapper">-->
+                        <!--<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}"-->
+                           <!--class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>-->
+                        <!--<a class="amazon-link" href="{{ getLink(gift) }}" target="_blank">Search on Amazon.com &gt;</a>-->
+                    <!--</figcaption>-->
+                <!--</div>-->
+                <!--<div class="figure-overlay"></div>-->
+            <!--</figure>-->
         </div>
     </div>
 </section>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-	<script src="static/bundle.min.js"></script>
+	<script src="static/bundle.min.js?v=1.1"></script>
 </body>
 </html>
