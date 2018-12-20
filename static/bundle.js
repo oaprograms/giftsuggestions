@@ -2843,7 +2843,7 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
             }
             item.genderPoints = genderPoints;
             // grade points ---------
-            var gradePoints = (item.grade || 3) * 2;
+            var gradePoints = (item.grade || 3) * 2.5;
             item.gradePoints = gradePoints;
             // all
             item.points = gradePoints + pricePoints + genderPoints + agePoints;
