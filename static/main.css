@@ -516,7 +516,7 @@ a:focus, a:hover {
         margin: 0; }
       .p-gifts .products-section .single-product-simple .single-product-simple-wrap-white {
         background: white;
-        padding: 15px;
+        padding: 5px 10px 10px;
         margin: 0;
         cursor: pointer;
         display: -webkit-box;
@@ -533,7 +533,7 @@ a:focus, a:hover {
             -ms-flex-pack: center;
                 justify-content: center;
         width: 180px;
-        min-height: 270px;
+        min-height: 255px;
         border: 1px solid rgba(212, 102, 65, 0.47); }
         .p-gifts .products-section .single-product-simple .single-product-simple-wrap-white:hover {
           opacity: .9; }
@@ -552,7 +552,7 @@ a:focus, a:hover {
       .p-gifts .products-section .single-product-simple .price {
         margin: 0;
         margin-bottom: 7px;
-        font-size: 15px; }
+        font-size: 14px; }
       .p-gifts .products-section .single-product-simple .product-name {
         margin-top: 15px;
         margin-bottom: 5px;
@@ -952,17 +952,20 @@ a:focus, a:hover {
               -ms-flex-direction: row;
                   flex-direction: row;
           width: 100%;
-          padding-top: 5px;
-          padding-bottom: 5px;
+          padding-top: 7px;
+          padding-bottom: 7px;
           min-height: 0;
           border: none; }
         .p-gifts .products-section .single-product-simple .img {
           margin-right: 20px;
           -webkit-box-flex: 0;
-              -ms-flex: 0 0 100px;
-                  flex: 0 0 100px; }
+              -ms-flex: 0 0 70px;
+                  flex: 0 0 70px;
+          height: 70px; }
         .p-gifts .products-section .single-product-simple .info {
-          text-align: left; } }
+          text-align: left; }
+        .p-gifts .products-section .single-product-simple .product-name {
+          font-size: 16px; } }
   @media (max-width: 390px) {
     .p-gifts .big-slider {
       width: 160px; }
