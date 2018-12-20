@@ -2732,7 +2732,7 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
 		gifts: DATA.gifts,
         categories: DATA.categories,
         allCategoriesSelected: true,
-        limit: 50,
+        limit: 60,
         categoriesLimit: getCategoriesLimit(),
         numFoundGifts: 0
 	};
@@ -2810,6 +2810,7 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
     };
 
     $scope.calcPoints = function(){
+        $scope.data.limit = 60;
         var price = parseFloat($scope.priceSlider.val.replace('$', ''));
         var age = $scope.ageSlider.val; // ['Baby', 'Child', 'Teen', 'Adult']
         var gender = $scope.genderSlider.val; // ['Male', 'Both', 'Female']
@@ -2866,7 +2867,7 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
     };
 
     window.onscroll = function(ev) {
-        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight - 400) {
+        if ((window.innerHeight + window.pageYOffset) >= document.querySelector('.products-section').clientHeight) {
             $scope.$apply(function () {
                 $scope.data.limit += 20;
             });
