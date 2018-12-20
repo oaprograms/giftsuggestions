@@ -534,7 +534,8 @@ a:focus, a:hover {
                 justify-content: center;
         width: 180px;
         min-height: 255px;
-        border: 1px solid rgba(212, 102, 65, 0.47); }
+        border: 1px solid rgba(212, 102, 65, 0.47);
+        position: relative; }
         .p-gifts .products-section .single-product-simple .single-product-simple-wrap-white:hover {
           opacity: .9; }
       .p-gifts .products-section .single-product-simple .img {
@@ -559,6 +560,22 @@ a:focus, a:hover {
         opacity: .9;
         font-weight: 600;
         color: #333; }
+      .p-gifts .products-section .single-product-simple .amazon {
+        position: absolute;
+        text-align: center;
+        top: 68px;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        color: #333;
+        font-weight: 300;
+        line-height: 25px;
+        z-index: 1;
+        opacity: 0;
+        -webkit-transition: opacity .2s;
+        transition: opacity .2s; }
+      .p-gifts .products-section .single-product-simple:hover .amazon {
+        opacity: 1; }
       .p-gifts .products-section .single-product-simple .tags {
         margin: 0;
         padding-top: 0; }
@@ -956,6 +973,8 @@ a:focus, a:hover {
           padding-bottom: 7px;
           min-height: 0;
           border: none; }
+        .p-gifts .products-section .single-product-simple:hover .amazon {
+          display: none; }
         .p-gifts .products-section .single-product-simple .img {
           margin-right: 20px;
           -webkit-box-flex: 0;
