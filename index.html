@@ -120,12 +120,12 @@
         <div class="products-section grid" ng-cloak>
             <div class="single-product-simple" ng-repeat="gift in data.gifts | filterCategories: data.categories | orderBy: '-points'  | limitTo: data.limit">
                 <div class="single-product-simple-wrap">
-                    <a class="single-product-simple-wrap-white" href="{{ getLink(gift) }}" target="_blank" >
+                    <a class="single-product-simple-wrap-white" href="{{ getLink(gift) }}" target="_blank" title="Search on Amazon.com">
                         <span class="img" ng-style="{'background-image':'url(' + gift.img + ')'}"></span>
                         <div class="info">
                             <div class="product-name">{{ gift.name }}</div>
                             <p class="price">${{gift.min}} - {{gift.max}} (avg. ${{gift.price}})</p>
-                            <p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><span class="tag" ng-click="selectCategory(tag); $event.stopPropagation(); $event.preventDefault();">{{ tag }}</span>{{$last ? '' : ', '}}</span></p>
+                            <p class="tags" title="Filter by tag"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><span class="tag" ng-click="selectCategory(tag); $event.stopPropagation(); $event.preventDefault();">{{ tag }}</span>{{$last ? '' : ', '}}</span></p>
                             <ul ng-if="showPoints">
                                 <li>
                                     age: {{gift.agePoints}}
