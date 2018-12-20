@@ -2816,7 +2816,7 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
             // price points ---------
             var pricePoints = Math.min(item.price / price, price / item.price) * 4;
             if (item.price > price) pricePoints /= 2;
-            pricePoints *= 2;
+            pricePoints *= 2.5;
             item.pricePoints = pricePoints;
             // age points ---------
             var agePoints = 0;
