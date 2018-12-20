@@ -14,9 +14,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 	<title>Gift Suggestions</title>
-    <meta name="Description" content="Big list of gift suggestions for birthdays, holidays, anniversaries and other occasions." />
+    <meta name="Description" content="Looking for a present? Ran out of ideas? On this website you can get gift ideas for any given price, age and gender." />
     <meta property="og:title" content="Gift Suggestions" />
-    <meta property="og:description" content="Big list of gift suggestions for birthdays, holidays, anniversaries and other occasions." />
+    <meta property="og:description" content="Looking for a present? Ran out of ideas? On this website you can get gift ideas for any given price, age and gender." />
     <meta property="og:url" content="http://giftsuggestions.org/" />
     <meta property="og:locale" content="en_US" />
     <meta property="og:image" content="" />
@@ -50,7 +50,7 @@
 	<header class="header">
 		<div class="container">
 			<div class="logo-wrapper">
-				<div id="giftLogo" class="gift-logo">
+				<div id="giftLogo" class="gift-logo" ng-dblclick="showPoints = !showPoints">
                     <!--<svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 768 768">-->
                         <!--<title></title>-->
                         <!--<g id="icomoon-ignore">-->
@@ -65,14 +65,12 @@
     </header>
 <section class="p-gifts">
     <div class="left">
-        <div class="categories-section clearfix ng-cloak">
-            <div class="checkbox-item"
+        <div class="checkbox-section ng-cloak clearfix">
+            <div class="checkbox-item first"
                  ng-click="selectCategory('all'); $event.stopPropagation(); $event.preventDefault();">
                 <input type="checkbox" ng-model="data.allCategoriesSelected" id="catAll"/>
                 <label for="catAll"><span>All Categories</span></label>
             </div>
-        </div>
-        <div class="checkbox-section clearfix">
             <div class="checkbox-item ng-cloak" ng-repeat="category in data.categories | limitTo: data.categoriesLimit">
                 <input type="checkbox" ng-model="category.show" id="cat{{$index}}"/>
                 <label for="cat{{$index}}"><span
@@ -99,7 +97,7 @@
                 <div class="category-age-gender">
                     <p class="category">
                         <span class="price-label">Age:</span>
-                        <rzslider class="small-slider"
+                        <rzslider class="mid-slider"
                                   rz-slider-model="ageSlider.val"
                                   rz-slider-options="ageSlider.options">
                         </rzslider>
@@ -120,7 +118,7 @@
                     <!--class="fa fa-plus"></span>Add suggestion</a>-->
         <!--</div>-->
         <div class="products-section grid" ng-cloak>
-            <div class="single-product-simple" ng-repeat="gift in data.gifts | filterCategories: data.categories | filterAge: ageSlider | filterGender: genderSlider | orderBy: '-points'  | limitTo: data.limit">
+            <div class="single-product-simple" ng-repeat="gift in data.gifts | filterCategories: data.categories | orderBy: '-points'  | limitTo: data.limit">
                 <div class="single-product-simple-wrap">
                     <a class="single-product-simple-wrap-white" href="{{ getLink(gift) }}" target="_blank" >
                         <span class="img" ng-style="{'background-image':'url(' + gift.img + ')'}"></span>
@@ -128,6 +126,20 @@
                             <div class="product-name">{{ gift.name }}</div>
                             <p class="price">${{gift.min}} - {{gift.max}} (avg. ${{gift.price}})</p>
                             <p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><span class="tag" ng-click="selectCategory(tag); $event.stopPropagation(); $event.preventDefault();">{{ tag }}</span>{{$last ? '' : ', '}}</span></p>
+                            <ul ng-if="showPoints">
+                                <li>
+                                    age: {{gift.agePoints}}
+                                </li>
+                                <li>
+                                    gender: {{gift.genderPoints}}
+                                </li>
+                                <li>
+                                    grade: {{gift.grade || 3}}
+                                </li>
+                                <li>
+                                    price: {{gift.pricePoints || 3}}
+                                </li>
+                            </ul>
                             <!--<a class="amazon-link" href="{{ getLink(gift) }}" target="_blank"><span class="amazon-link-search">Search on </span>Amazon.com &gt;</a>-->
                         </div>
                     </a>
