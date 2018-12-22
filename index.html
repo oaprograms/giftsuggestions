@@ -40,11 +40,22 @@
     <meta name="msapplication-TileImage" content="ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="static/main.min.css?v=1.3">
+    <link rel="stylesheet" href="static/main.min.css?v=1.0">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
+    <!-- Hotjar Tracking Code for http://giftsuggestions.org -->
+    <script>
+        (function(h,o,t,j,a,r){
+            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+            h._hjSettings={hjid:1137192,hjsv:6};
+            a=o.getElementsByTagName('head')[0];
+            r=o.createElement('script');r.async=1;
+            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+    </script>
 </head>
 <body ng-controller="mainCtrl">
 	<header class="header">
@@ -112,11 +123,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class="suggestions-section" ng-cloak>-->
-        <!--<span class="suggestion-text">Found <span class="suggestions-number ng-cloak">{{ data.numFoundGifts }}</span> suggestions:</span>-->
-            <!--<a href="https://goo.gl/forms/xJKh5iUI8MXV9OK73" target="_blank" class="link"><span-->
-                    <!--class="fa fa-plus"></span>Add suggestion</a>-->
-        <!--</div>-->
         <div class="products-section grid" ng-cloak>
             <div class="single-product-simple" ng-repeat="gift in data.gifts | filterCategories: data.categories | orderBy: '-points'  | limitTo: data.limit">
                 <div class="single-product-simple-wrap">
@@ -145,60 +151,11 @@
                     </a>
                 </div>
             </div>
-            <!--<figure class="single-product ng-cloak effect-zoe" ng-if="!data.showFavs"-->
-                    <!--ng-repeat="gift in data.gifts | filterCategories: data.categories | filterAge: ageSlider | filterGender: genderSlider | orderBy: '-points'  | limitTo: data.limit">-->
-                <!--&lt;!&ndash;price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}&ndash;&gt;-->
-                <!--<a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">-->
-                    <!--<img ng-src="{{gift.img}}" alt="">-->
-                <!--</a>-->
-                <!--<div class="product-wrapper">-->
-                    <!--<div class="product-name-wrapper">-->
-                        <!--<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>-->
-                        <!--<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}} (avg. ${{gift.price}}) </a>-->
-                        <!--</p>-->
-                        <!--<p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a-->
-                                <!--href="#" class="tag"-->
-                                <!--ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>-->
-
-                    <!--</div>-->
-                    <!--<figcaption class="data-wrapper">-->
-                        <!--<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}"-->
-                           <!--class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>-->
-                        <!--<a class="amazon-link" href="{{ getLink(gift) }}" target="_blank"><span-->
-                                <!--class="amazon-link-search">Search on </span>Amazon.com &gt;</a>-->
-                    <!--</figcaption>-->
-                <!--</div>-->
-                <!--<div class="figure-overlay"></div>-->
-            <!--</figure>-->
-            <!--<figure class="single-product ng-cloak effect-zoe"-->
-                    <!--ng-repeat="gift in data.gifts | filterFavs: data.favs as favFilter" ng-if="data.showFavs">-->
-                <!--&lt;!&ndash;price {{gift.price}} | grade {{gift.grade}} | pp {{gift.pricePoints}} | points {{gift.points}}&ndash;&gt;-->
-                <!--<a class="image-wrapper" href="{{ getLink(gift) }}" target="_blank">-->
-                    <!--<img ng-src="{{gift.img}}" alt="">-->
-                <!--</a>-->
-                <!--<div class="product-wrapper">-->
-                    <!--<div class="product-name-wrapper">-->
-                        <!--<p class="product-name"><a href="{{ getLink(gift) }}" target="_blank">{{ gift.name }}</a></p>-->
-                        <!--<p class="price"><a href="{{ getLink(gift) }}" target="_blank">${{gift.min}} - ${{gift.max}} (avg. ${{gift.price}}) </a>-->
-                        <!--</p>-->
-                        <!--<p class="tags"><span class="fa fa-tags mr"></span><span ng-repeat="tag in gift.tags"><a-->
-                                <!--href="#" class="tag"-->
-                                <!--ng-click="selectCategory(tag)">{{ tag }}</a>{{$last ? '' : ', '}}</span></p>-->
-
-                    <!--</div>-->
-                    <!--<figcaption class="data-wrapper">-->
-                        <!--<a href ng-class="{'fa-heart-o': data.favs.indexOf(gift.name) == -1}"-->
-                           <!--class="like fa fa-heart fa-2x" ng-click="toggleFav(gift);"></a>-->
-                        <!--<a class="amazon-link" href="{{ getLink(gift) }}" target="_blank">Search on Amazon.com &gt;</a>-->
-                    <!--</figcaption>-->
-                <!--</div>-->
-                <!--<div class="figure-overlay"></div>-->
-            <!--</figure>-->
         </div>
     </div>
 </section>
     <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.6/angular.min.js"></script>
-	<script src="static/bundle.min.js?v=1.3"></script>
+	<script src="static/bundle.min.js"></script>
 </body>
 </html>
