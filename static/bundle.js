@@ -2816,9 +2816,16 @@ app.controller('mainCtrl', ['$scope', '$interval', '$timeout', '$sce', '$documen
         var gender = $scope.genderSlider.val; // ['Male', 'Both', 'Female']
         angular.forEach($scope.data.gifts, function(item) {
             // price points ---------
-            var pricePoints = Math.min(item.price / price, price / item.price) * 4;
-            if (item.price > price) pricePoints /= 2;
-            pricePoints *= 2.5;
+            var pricePoints = Math.min(item.price / price, price / item.price) * 10 + 4;
+            if (item.price > (price * 1.5 + 5)) {
+                pricePoints /= 2;
+            } else if (item.price > (price * 1.3 + 4)) {
+                pricePoints /= 1.5;
+            } else if (item.price > (price * 1.2 + 3)) {
+                pricePoints /= 1.2;
+            } else if (item.price > (price * 1.1 + 2)) {
+                pricePoints /= 1.05;
+            }
             item.pricePoints = pricePoints;
             // age points ---------
             var agePoints = 0;

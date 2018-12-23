@@ -145,6 +145,9 @@
                                 <li>
                                     price: {{gift.pricePoints}}
                                 </li>
+                                <li>
+                                    total: {{gift.pricePoints + gift.gradePoints + gift.genderPoints + gift.agePoints }}
+                                </li>
                             </ul>
                             <!--<a class="amazon-link" href="{{ getLink(gift) }}" target="_blank"><span class="amazon-link-search">Search on </span>Amazon.com &gt;</a>-->
                         </div>
